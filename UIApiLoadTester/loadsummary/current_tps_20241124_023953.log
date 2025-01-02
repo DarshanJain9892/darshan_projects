@@ -1,0 +1,66 @@
+Elapsed Time: 1.39 seconds, Achieved TPS: 36.80
+Elapsed Time: 2.39 seconds, Achieved TPS: 46.10
+Elapsed Time: 3.39 seconds, Achieved TPS: 47.76
+Elapsed Time: 4.39 seconds, Achieved TPS: 45.60
+Elapsed Time: 5.39 seconds, Achieved TPS: 46.60
+Elapsed Time: 6.39 seconds, Achieved TPS: 46.98
+Elapsed Time: 7.39 seconds, Achieved TPS: 49.01
+Elapsed Time: 8.39 seconds, Achieved TPS: 49.13
+Elapsed Time: 9.39 seconds, Achieved TPS: 49.54
+Elapsed Time: 10.39 seconds, Achieved TPS: 48.82
+Elapsed Time: 11.39 seconds, Achieved TPS: 49.97
+Elapsed Time: 12.39 seconds, Achieved TPS: 49.65
+Elapsed Time: 13.39 seconds, Achieved TPS: 49.38
+Elapsed Time: 14.39 seconds, Achieved TPS: 49.01
+Elapsed Time: 15.39 seconds, Achieved TPS: 49.66
+Elapsed Time: 16.39 seconds, Achieved TPS: 50.09
+Elapsed Time: 17.39 seconds, Achieved TPS: 49.93
+Elapsed Time: 18.39 seconds, Achieved TPS: 48.95
+Elapsed Time: 19.39 seconds, Achieved TPS: 49.00
+Elapsed Time: 20.39 seconds, Achieved TPS: 49.05
+Elapsed Time: 21.39 seconds, Achieved TPS: 49.46
+Elapsed Time: 22.39 seconds, Achieved TPS: 49.35
+Elapsed Time: 23.39 seconds, Achieved TPS: 49.99
+Elapsed Time: 24.39 seconds, Achieved TPS: 49.95
+Elapsed Time: 25.39 seconds, Achieved TPS: 49.28
+Elapsed Time: 26.39 seconds, Achieved TPS: 49.27
+Elapsed Time: 27.39 seconds, Achieved TPS: 49.88
+Elapsed Time: 28.39 seconds, Achieved TPS: 49.88
+Elapsed Time: 29.39 seconds, Achieved TPS: 49.33
+Elapsed Time: 30.39 seconds, Achieved TPS: 49.99
+Elapsed Time: 31.39 seconds, Achieved TPS: 49.38
+Elapsed Time: 32.39 seconds, Achieved TPS: 49.40
+Elapsed Time: 33.39 seconds, Achieved TPS: 49.42
+Elapsed Time: 34.39 seconds, Achieved TPS: 49.44
+Elapsed Time: 35.39 seconds, Achieved TPS: 49.45
+Elapsed Time: 36.39 seconds, Achieved TPS: 49.47
+Elapsed Time: 37.39 seconds, Achieved TPS: 49.48
+Elapsed Time: 38.39 seconds, Achieved TPS: 49.50
+Elapsed Time: 39.39 seconds, Achieved TPS: 49.51
+Elapsed Time: 40.39 seconds, Achieved TPS: 49.52
+Elapsed Time: 41.39 seconds, Achieved TPS: 49.53
+Elapsed Time: 42.39 seconds, Achieved TPS: 49.54
+Elapsed Time: 43.39 seconds, Achieved TPS: 49.55
+Elapsed Time: 44.39 seconds, Achieved TPS: 49.56
+Elapsed Time: 45.39 seconds, Achieved TPS: 49.57
+Elapsed Time: 46.39 seconds, Achieved TPS: 49.58
+Elapsed Time: 47.39 seconds, Achieved TPS: 49.59
+Elapsed Time: 48.39 seconds, Achieved TPS: 49.60
+Elapsed Time: 50.26 seconds, Achieved TPS: 48.74
+Elapsed Time: 50.39 seconds, Achieved TPS: 49.72
+Elapsed Time: 51.39 seconds, Achieved TPS: 49.88
+Elapsed Time: 52.39 seconds, Achieved TPS: 49.96
+Elapsed Time: 53.39 seconds, Achieved TPS: 49.76
+Elapsed Time: 54.39 seconds, Achieved TPS: 49.74
+Elapsed Time: 55.39 seconds, Achieved TPS: 49.81
+Elapsed Time: 56.39 seconds, Achieved TPS: 49.85
+Elapsed Time: 57.39 seconds, Achieved TPS: 49.87
+Elapsed Time: 58.39 seconds, Achieved TPS: 49.81
+Elapsed Time: 59.39 seconds, Achieved TPS: 49.94
+Elapsed Time: 60.39 seconds, Achieved TPS: 49.93
+
+--- Load Test Summary ---
+Total Requests Sent: 3050
+Successful Requests: 3050
+Failed Requests: 0
+-------------------------
