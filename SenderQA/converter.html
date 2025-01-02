@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Converter</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: calc(100% - 20px);
+      height: 120px;
+      margin: 20px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      resize: none;
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output-container {
+      margin-top: 30px;
+      text-align: left;
+    }
+    .output-label {
+      font-weight: bold;
+      color: #333333;
+    }
+    .output {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      word-wrap: break-word;
+      font-size: 16px;
+      color: #333333;
+    }
+
+    header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+    /* Header Styling */
+    header {
+            background-color: #1881eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+    header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #f0ebeb;
+        }
+    /* Footer Styling */
+    footer {
+            background-color: #1075db;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+  </style>
+</head>
+<body>
+    <header>
+        <img src="https://gs-upload.gupshup.io/revamp/assets/v3/images/new-home-page/logo-gupshup.svg" alt="Gupshup Sender QA Logo">
+        <h1>Converter</h1>
+    </header>
+  <div class="container">
+    <textarea id="input" placeholder="Enter your text here..."></textarea>
+    <div class="button-container">
+      <button onclick="convert('hexToString')">Hex to String</button>
+      <button onclick="convert('stringToHex')">String to Hex</button>
+      <button onclick="convert('urlEncode')">URL Encode</button>
+      <button onclick="convert('urlDecode')">URL Decode</button>
+      <button onclick="convert('stringToHash')">String to Hash</button>
+    </div>
+    <div class="output-container">
+        <p class="output-label">Output:</p>
+        <div class="output" id="output"></div>
+        <button onclick="copyToClipboard()" style="margin-top: 10px;">Copy</button>
+      </div>
+  </div>
+  <footer>
+    <p>Author: Darshan Jain | © 2024</p>
+</footer>
+  <script src="converter_script.js"></script>
+</body>
+</html>

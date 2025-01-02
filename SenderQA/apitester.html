@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gupshup API Tester</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #0078d7;
+            color: white;
+        }
+        header img {
+            height: 40px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .response {
+            white-space: pre-wrap;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="your-logo.png" alt="Gupshup Logo">
+        <h1>Gupshup API Tester</h1>
+    </header>
+    <main>
+        <form id="apiForm">
+            <label for="method">HTTP Method</label>
+            <select id="method" name="method">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+            </select>
+
+            <label for="url">API URL</label>
+            <input type="text" id="url" name="url" placeholder="Enter API endpoint" required>
+
+            <label for="headers">Headers (JSON format)</label>
+            <textarea id="headers" name="headers" placeholder='{"Content-Type": "application/json"}'></textarea>
+
+            <label for="body">Body (JSON format)</label>
+            <textarea id="body" name="body" placeholder='{"key": "value"}'></textarea>
+
+            <button type="button" id="sendRequest">Send Request</button>
+        </form>
+
+        <h3>Response</h3>
+        <div id="response" class="response">Response will appear here...</div>
+    </main>
+    <script>
+        document.getElementById("sendRequest").addEventListener("click", async () => {
+            const method = document.getElementById("method").value;
+            const url = document.getElementById("url").value;
+            const headers = document.getElementById("headers").value;
+            const body = document.getElementById("body").value;
+
+            try {
+                const options = {
+                    method,
+                    headers: headers ? JSON.parse(headers) : {}
+                };
+
+                if (method !== "GET" && body) {
+                    options.body = body;
+                }
+
+                const response = await fetch(url, options);
+                const responseData = await response.text();
+                document.getElementById("response").innerText = responseData;
+            } catch (error) {
+                document.getElementById("response").innerText = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV to Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .chart-container {
+            width: 90%;
+            height: 70vh;
+            margin: auto;
+        }
+
+        canvas {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSV to Graph Viewer</h1>
+    <input type="file" id="csvFileInput" accept=".csv">
+    <div class="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <footer>
+        <p>Designed for easy data visualization from CSV files.</p>
+    </footer>
+
+    <script>
+        document.getElementById('csvFileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const csvData = e.target.result;
+                    const rows = csvData.split('\n');
+
+                    const xData = [];
+                    const yData = [];
+
+                    rows.forEach((row, index) => {
+                        const columns = row.split(',');
+
+                        if (index === 0) {
+                            // Assume first row contains headers, skip or use as labels
+                            return;
+                        }
+
+                        yData.push(parseFloat(columns[1])); // Assuming second column is for Y-axis
+                        xData.push(columns[0]); // Assuming first column is for X-axis in time format
+                    });
+
+                    plotGraph(xData, yData);
+                };
+
+                reader.readAsText(file);
+            }
+        });
+
+        function plotGraph(xData, yData) {
+            const ctx = document.getElementById('chart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'line', // Line chart for X vs Y
+                data: {
+                    labels: xData, // X-axis labels
+                    datasets: [{
+                        label: 'Data from CSV',
+                        data: yData, // Y-axis data
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                        },
+                        tooltip: {
+                            enabled: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return `X: ${context.label}, Y: ${context.raw}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time (Column 1)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    const timeLabel = this.getLabelForValue(value);
+                                    return timeLabel.length > 10 ? timeLabel.slice(0, 10) + '...' : timeLabel;
+                                },
+                                maxRotation: 45,
+                                minRotation: 45,
+                                autoSkip: false
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Value (Column 2)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuration Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Configuration</h1>
+    <form id="configForm">
+        <div class="form-group">
+            <label for="api_url">API URL:</label>
+            <input type="text" id="api_url" name="api_url" value="http://10.151.110.53:8080/GatewayAPI/rest?send_to=9867758933&password=yqIbSLZj4&method=SendMessage&v=1.1&format=text&msg_type=TEXT&auth_scheme=plain&userid=2000224696&msg=This%20is%20a%20test%20message%20-%20GS">
+        </div>
+        <div class="form-group">
+            <label for="tps">TPS:</label>
+            <input type="number" id="tps" name="tps" value="50">
+        </div>
+        <div class="form-group">
+            <label for="duration_in_seconds">Duration (seconds):</label>
+            <input type="number" id="duration_in_seconds" name="duration_in_seconds" value="60">
+        </div>
+        <div class="form-group">
+            <label for="thread_count">Thread Count:</label>
+            <input type="number" id="thread_count" name="thread_count" value="10">
+        </div>
+        <div class="form-group">
+            <label for="enable_screen">Enable Screen:</label>
+            <input type="text" id="enable_screen" name="enable_screen" value="true">
+        </div>
+        <button type="button" onclick="submitConfig()">Save Changes</button>
+    </form>
+    <script>
+        function submitConfig() {
+            const config = {
+                api_url: document.getElementById('api_url').value,
+                tps: document.getElementById('tps').value,
+                duration_in_seconds: document.getElementById('duration_in_seconds').value,
+                thread_count: document.getElementById('thread_count').value,
+                enable_screen: document.getElementById('enable_screen').value,
+            };
+            fetch('/update-config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(config),
+            }).then(response => {
+                if (response.ok) {
+                    alert('Configuration updated successfully!');
+                } else {
+                    alert('Failed to update configuration.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
