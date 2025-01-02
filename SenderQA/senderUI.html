@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gupshup Sender QA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #0084ff;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* Container for Sections */
+        .container {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Styling */
+        .section-header {
+            color: #0084ff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0084ff;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Inline Sections Container */
+        .sections-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+
+        /* User Input Section */
+        .user-input {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .user-input input {
+            flex-grow: 1;
+            max-width: 300px;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            width: 100%;
+            max-width: 250px;
+            padding: 12px 15px;
+            margin: 5px 0;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background-color: #0084ff;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #0066cc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #5bc0de;
+        }
+
+        .btn-secondary:hover {
+            background-color: #31b0d5;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+        }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+        }
+
+        .btn-success {
+            background-color: #5cb85c;
+        }
+
+        .btn-success:hover {
+            background-color: #449d44;
+        }
+
+        /* Button Container */
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #0084ff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #0084ff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .sections-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .section {
+                width: 100%;
+                max-width: none;
+            }
+
+            .user-input {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .user-input input,
+            .user-input button {
+                width: 100%;
+                max-width: none;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://gs-upload.gupshup.io/revamp/assets/v3/images/new-home-page/logo-gupshup.svg" alt="Gupshup Sender QA Logo">
+        <h1>Sender QA</h1>
+    </header>
+
+    <div class="container">
+        <!-- User Input Section -->
+        <div class="user-input">
+            <span style="font-weight: bold;">What does Gupshup do ? → </span>
+            <label for="userInput">Enter Number:</label>
+            <input type="text" id="userInput" placeholder="Enter a number">
+            <button id="keysubmitButton" class="btn">KEY Prod</button>
+            <button id="sh3submitButton" class="btn">SH3 Prod</button>
+        </div>
+
+        <!-- Inline Sections -->
+        <div class="sections-container">
+            <div class="section">
+                <h2 class="section-header">Sender Details</h2>
+                <div class="btn-container">
+                    <a href="sender-workflow.html" class="btn">Sender Workflow</a>
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/FD/pages/1976336615/KT+Session+-+Recorded+Videos" class="btn" target="_blank">Sender Recorded KT Sessions</a>
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/FD/pages/1983742745/Sanity+Testing+-+Recorded+Videos" class="btn" target="_blank">Sanity Recorded KT Videos</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-header">QA Setup Details</h2>
+                <div class="btn-container">
+                    <a href="https://docs.google.com/spreadsheets/d/1wcYSYeskb1CIkzOy14fzrVjjHrrsBRlow6gTjhq951A/edit?gid=0#gid=0" class="btn btn-danger" target="_blank">Nutanix 1 QA Inventory</a>
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/SENDER/pages/2053410096/QA+2nd+Nutanix+Setup+WA" class="btn btn-danger" target="_blank">Nutanix 2 QA Inventory</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1wcYSYeskb1CIkzOy14fzrVjjHrrsBRlow6gTjhq951A/edit?gid=1936776551#gid=1936776551" class="btn btn-danger" target="_blank">Nutanix 3 QA Inventory</a>
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/SENDER/pages/2054128520/QA+AWS+Performance+Setup+Upgraded" class="btn btn-danger" target="_blank">AWS QA Inventory</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-header">Prod Setup Details</h2>
+                <div class="btn-container">
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/SENDER/pages/1480163608/Sender+New+FB+Segment+AWS-FB" class="btn btn-success" target="_blank">AWS Prod Inventory</a>
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/SENDER/pages/1481572492/Sender+New+Key+Segment" class="btn btn-success" target="_blank">KEY Prod Inventory</a>
+                    <a href="https://gupshupinc.atlassian.net/wiki/spaces/SENDER/pages/2494136364/Sender+New+SH3+Segment+Upgraded+new+GI" class="btn btn-success" target="_blank">SH3 Prod Inventory</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header">Application Details</h2>
+        <!-- Table -->
+        <table id="appTable">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>App Name</th>
+                    <th>All URLs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+    <div class="sections-container">
+        <div class="section">
+            <h2 class="section-header">Utilities</h2>
+            <div class="btn-container">
+                <a href="senderqaautomation.html" class="btn">QA Automation Jobs</a>
+            </div>
+            <div class="btn-container">
+                <a href="converter.html" class="btn">Data Format Converter</a>
+            </div>
+            <div class="btn-container">
+                <a href="testcase.html" class="btn" target="_blank">New Test Case Sheet</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // KEY Submit button
+    document.getElementById('keysubmitButton').addEventListener('click', function () {
+        // Get the user input
+        const userInput = document.getElementById('userInput').value.trim();
+
+        // Check if input is valid
+        if (!userInput) {
+            alert("Please enter your number.");
+            return;
+        }
+
+        // Replace $Number in the URL
+        const baseURL = "https://premium.smsgupshup.com/GatewayAPI/rest?method=SendMessage&send_to=$Number&msg=This%20is%20a%20test%20message%20-%20GS&msg_type=TEXT&userid=2000200504&auth_scheme=plain&password=5J8wLJD7&v=1.1&format=text"; // Replace with your actual URL
+        const finalURL = baseURL.replace('$Number', userInput);
+
+        // Open and immediately close the tab
+        const newTab = window.open(finalURL, '_blank');
+
+        // Check if the tab was opened successfully
+        if (newTab) {
+            setTimeout(() => {
+                newTab.close();
+            }, 2000); // Delay of 2 seconds
+        } else {
+            alert("Unable to open the tab. Please allow pop-ups for this site.");
+        }
+    });
+</script>
+
+<script>
+
+    // SH3 Submit button
+document.getElementById('sh3submitButton').addEventListener('click', function () {
+    // Get the user input
+    const userInput = document.getElementById('userInput').value.trim();
+
+    // Check if input is valid
+    if (!userInput) {
+        alert("Please enter your number.");
+        return;
+    }
+
+    // Replace $Number in the URL
+    const baseURL = "https://enterprise.smsgupshup.com/GatewayAPI/rest?method=SendMessage&send_to=$Number&msg=Your%20OTP%20code%20is%20123%20-GS&msg_type=TEXT&userid=2000246586&auth_scheme=plain&password=dBLmuT3X&v=1.1&format=text"; // Replace with your actual URL
+    const finalURL = baseURL.replace('$Number', userInput);
+
+    // Open and immediately close the tab
+    const newTab = window.open(finalURL, '_blank');
+
+    // Check if the tab was opened successfully
+    if (newTab) {
+        setTimeout(() => {
+            newTab.close();
+        }, 2000); // Delay of 2 seconds
+    } else {
+        alert("Unable to open the tab. Please allow pop-ups for this site.");
+    }
+});
+</script>
+
+<script src="script.js"></script>
+    <!-- Footer -->
+    <footer>
+        <p>Author: Darshan Jain | © 2024</p>
+    </footer>
+</body>
+</html>

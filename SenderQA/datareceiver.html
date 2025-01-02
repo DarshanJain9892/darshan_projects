@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataReceiver Details</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        /* Content Container */
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #003366;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+
+        .content .database-list, .content .logs {
+            margin: 20px 0;
+        }
+
+        .content .database-list p, .content .logs pre {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #003366;
+            border-radius: 4px;
+            overflow-x: auto; /* Ensure long lines scroll horizontally */
+        }
+
+        .logs pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+
+        /* Highlight Styling */
+        .highlight {
+            background-color: #ffffcc; /* Light yellow highlight */
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Highlight 2 Styling */
+        .highlight2 {
+            background-color: #bcf37c; /* Green yellow highlight */
+            font-weight: bold;
+            color: #1a1b18;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DataReceiver</h1>
+    </header>
+    <div class="content">
+        <h2>Databases Connected by DataReceiver:</h2>
+        <p>cat /opt/$(tomcat_name)/webapps/DataReceiver/WEB-INF/classes/connection.properties</p>
+        <div class="database-list">
+            <p></p>
+        </div>
+        <h2>Logs on DataReceiver:</h2>
+        <div class="logs">
+            <pre>
+
+            </pre>
+        </div>
+
+        <h2>Command to grep logs :</h2>
+        <div class="database-list">
+            <p></p>
+        </div>
+
+
+
+
+
+        
+    </div>
+    <footer>
+        <p>Author: Darshan Jain | © 2024</p>
+    </footer>
+</body>
+</html>

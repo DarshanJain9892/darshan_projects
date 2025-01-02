@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Test Cases Sheet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(to right, #1a73e8, #0057c2);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    main .content {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    main h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0057c2;
+      transform: scale(1.05);
+    }
+
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 5px #1a73e8;
+    }
+
+    .google-logo {
+      height: 32px;
+      width: 32px;
+    }
+
+    footer {
+      background: linear-gradient(to right, #1a73e8, #0057c2);
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://gs-upload.gupshup.io/revamp/assets/v3/images/new-home-page/logo-gupshup.svg" alt="Gupshup Logo">
+    <h1>Test Sheet Generator</h1>
+  </header>
+
+  <main>
+    <div class="content">
+      <h1>Create a New Test Case Google Sheet</h1>
+      <div class="button-container">
+        <button onclick="createSheet()">Generate TC Sheet</button>
+        <img class="google-logo" src="sheets.png" alt="Google Sheets Logo">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Author: Darshan Jain | © 2024</p>
+  </footer>
+
+  <script>
+    function createSheet() {
+      const webAppUrl = "https://script.google.com/a/macros/gupshup.io/s/AKfycbx2PW18QbrOivsd8UsEe63tt57RxXJz4BNw4A6DSFHsrnsxxxwaB13qFl1MMIYaUdQj/exec";
+      window.location.href = webAppUrl;
+    }
+  </script>
+</body>
+</html>

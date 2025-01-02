@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMSSenderCallBack Details</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        /* Content Container */
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #003366;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+
+        .content .database-list, .content .logs {
+            margin: 20px 0;
+        }
+
+        .content .database-list p, .content .logs pre {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #003366;
+            border-radius: 4px;
+            overflow-x: auto; /* Ensure long lines scroll horizontally */
+        }
+
+        .logs pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+
+        /* Highlight Styling */
+        .highlight {
+            background-color: #ffffcc; /* Light yellow highlight */
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Highlight 2 Styling */
+        .highlight2 {
+            background-color: #bcf37c; /* Green yellow highlight */
+            font-weight: bold;
+            color: #1a1b18;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SMSSenderCallBack</h1>
+    </header>
+    <div class="content">
+        <h2>Databases Connected by SMSSenderCallBack:</h2>
+        <p>cat /opt/$(tomcat_name)/webapps/SMSSenderCallBack/WEB-INF/classes/connection.properties</p>
+        <div class="database-list">
+            <p>SMSNEW = core.db.r | 2</p>
+            <p>SMSSENDER = msgsender.db.rw | 30</p>
+            <p>SMSSENDER1 = msgsender1.db.rw | 30</p>
+            <p>SMSSENDER2 = msgsender2.db.rw | 30</p>
+            <p>SMSSENDER3 = msgsender3.db.rw | 30</p>
+            <p>SMSSENDER4 = msgsender4.db.rw | 30</p>
+            <p>SMSSENDER5 = msgsender5.db.rw | 30</p>
+            <p>SMSSENDER6 = msgsender6.db.rw | 30</p>
+            <p>SMSSENDER7 = msgsender7.db.rw | 30</p>
+            <p>SMSSENDERSNF = msgsendersnf.db.rw | 10</p>
+            <p>SMSSENDERCB = msgsendercb.db.rw | 10</p>
+            <p>SMSSENDERTHROTTLED = msgsenderthrottled.db.rw | 30</p>
+            <p>GATEWAYCONFIG = gatewayconfig.db.rw | 1</p>
+            <p>GLOBALDB = globaldb.db.r | 1</p>
+            <p>SMSSENDERMONITOR = smssendermonitor.db.rw | 5</p>
+        </div>
+        <h2>Logs on SMSSenderCallBack:</h2>
+        <div class="logs">
+            <p><span class="highlight2"># WA Requests Logs</span></p>
+            <pre>
+Mon Dec 02 11:14:02 IST 2024:com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService:SMSSenderCallBack: <span class="highlight">Gateway CallBack Service tuple processObject> MLTBCallBackTuple</span> [id=-1, dispatchedTime=1733118242515, properties={"dd":"1733118242515","waConversationPayload":"{\"expiration_timestamp\":\"1733203680\",\"origin\":{\"type\":\"utility\"},\"id\":\"15f03af7a56da2b7a39c9187de3fe77d\"}",<span class="highlight">"gec"</span>:"000","dbc":"1","ci":"2","readDate":"1733118241000","idc":"true","waPricingPayload":"{\"pricing_model\":\"CBP\",\"category\":\"utility\",\"billable\":true}","p":"512",<span class="highlight">"rac"</span>:"1","idMltb":1762684122,"pco":"true","cmi":"","receiptsMetadata":"{\"flgs\":\"0\",\"htlc\":\"\",\"dltid\":\"\",\"htn\":\"\",\"peid\":\"\",\"htid\":\"-1\",\"camId\":\"\"}"}, <span class="highlight">uniqueSenderId</span>=366522181454299543, <span class="highlight">externalId</span>=366522181454299543, <span class="highlight">errorCode</span>=000, gatewayId=606, <span class="highlight">status</span>=DELIVRD, numSMS=0, isEmpty=false, receiptsMetadata={"flgs":"0","htlc":"","dltid":"","htn":"","peid":"","htid":"-1","camId":""}, performCleanupOnly=true]
+            </pre>
+            <pre>
+Mon Dec 02 11:34:18 IST 2024:SenderThread-com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService-12:SMSSenderCallBackUtils: INFO: <span class="highlight">sending data event for causeId</span>: 5315087701840605219, channel: 2, <span class="highlight">destAddr</span>: $(DEST_NUMB), entityId: 1014973904, <span class="highlight">externalId</span>: 153246053329116413, gatewayId: 606, <span class="highlight">internalId</span>: 1099076856322911188, messageId: , <span class="highlight">srcAdd</span>: $(MASK), timestamp: 1733119457000, <span class="highlight">receiptEventType</span>: FAILED, <span class="highlight">errorCode</span>: 131026, <span class="highlight">globalErrorCode</span>: 003, <span class="highlight">stat</span>: FAILED, cmi: OGEwMmVjNDY2ZWY0ODg0ZDAxNmVmYTk3OGM3OTRhOGE, metadata: {"flgs":"2","htlc":"","dltid":"","htn":"","peid":"",<span class="highlight">"rac"</span>:1,"htid":"28119","ife":"1","camId":"","cmi":"OGEwMmVjNDY2ZWY0ODg0ZDAxNmVmYTk3OGM3OTRhOGE"}            
+            </pre>
+            <pre>
+Mon Dec 02 11:45:43 IST 2024:SenderThread-com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService-62:SMSSenderCallBackUtils: INFO: <span class="highlight">sending data report for causeId</span>: 5315093447851040941, <span class="highlight">externalId</span>:  432228833085746793, <span class="highlight">internalId</span>: 414517875571459707, entityId: 1014991361, <span class="highlight">destAddr</span>: 919811601189, <span class="highlight">srcAddr</span>: $(MASK), doneDate: 1733120142000, subDate: 1733120142154, <span class="highlight">err</span>: 131026, messageId: , <span class="highlight">stat</span>: FAILED, gatewayId: 680, <span class="highlight">globalErrorCode</span>: 003, sbt: 1733120142144, drProcessingStrategy: -1, fragDeliveredInfo: 1, dpt: -1, totalFragReceived: 0, dataBillableCount: 1, channel: 2, readDate: -1, <span class="highlight">errorCode</span>: 131026, <span class="highlight">isFinal</span>: true
+            </pre>
+            <pre>
+Mon Dec 02 11:52:30 IST 2024:com.webaroo.enterprise.receipts.ReceiptsMsgClient:SMSSenderCallBack: <span class="highlight">forwarded com.webaroo.smpp.DataMsgEvent for causeId</span>: 5315052726435807315, <span class="highlight">number</span>: $(DEST_NUMB), <span class="highlight">srcAddr</span>: $(MASK), msgId:
+            </pre>
+            <pre>
+Mon Dec 02 11:56:31 IST 2024:com.webaroo.enterprise.receipts.ReceiptsMsgClient:SMSSenderCallBack: <span class="highlight">forwarded com.webaroo.smpp.DataMsgReport for causeId</span>: 5315098871867093104, <span class="highlight">number</span>: $(DEST_NUMB), <span class="highlight">srcAddr</span>: $(MASK), msgId:
+            </pre>
+            <pre>
+Mon Dec 02 12:03:28 IST 2024:SenderThread-com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService-60:SMSSenderCallBackUtils: INFO: <span class="highlight">forwarding to Receipts</span>. causeId</span>: 5315062315920351482, <span class="highlight">phone</span>: $(DEST_NUMB), <span class="highlight">isFinal</span>: true, gatewayId: 522, <span class="highlight">gec</span>: 070, channelId: 1, sdrc: 0, wdrc: 0
+            </pre>
+            <pre>
+Mon Dec 02 12:00:55 IST 2024:SenderThread-com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService-31:RetryManager: INFO: <span class="highlight">forwarding event to cachemanager service for retry backoff of causeId</span>: 5315096035055751387, <span class="highlight">phone</span>: $(DEST_NUMB), <span class="highlight">uniqueSenderId</span>: 446883719862957886, <span class="highlight">retryDelay</span>: 600, event: {"returnTo":"topic://smssendercallback/retry.backoff","action":"add","value":719362180,<span class="highlight">"ttl"</span>:600,<span class="highlight">"key"</span>:"446883719862957886"}
+            </pre>
+            <pre>
+Mon Dec 02 12:18:25 IST 2024:SenderThread-com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService-146:RetryManager: INFO: For <span class="highlight">userID</span>: $(ENT_USER_ID), <span class="highlight">gec</span>: 003 <span class="highlight">is red listed for causeId</span>: 5315051487284363504, <span class="highlight">phone</span>: $(DEST_NUMB), <span class="highlight">uniqueSenderId</span>: 78346106937331265, type: OTHER, <span class="highlight">status</span>: DISPATCHED, <span class="highlight">isDataTuple</span>: true
+            </pre>
+
+            <p><span class="highlight2"># SMS Requests Logs</span></p>
+            <pre>
+Mon Dec 02 11:17:49 IST 2024:com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService:SMSSenderCallBack: <span class="highlight">Gateway CallBack Service tuple processObject> MLTBCallBackTuple</span> [id=-1, dispatchedTime=1733118468935, properties={"dd":"1733118468946","drp":"","soipci":"10",<span class="highlight">"gec"</span>:"01c",<span class="highlight">"msk"</span>:"$(MASK)","idc":"true","mid":"026e9132-e392-4cc4-9c13-0c756c91f490","dpt":"1733118468963","fdi":"","p":"504","idMltb":2426205643,"soipdmt":"3","soipsd":"1","cmi":"NzkyMzcz","receiptsMetadata":"{\"flgs\":\"0\",\"htlc\":\"\",\"dltid\":\"1107900000160600226\",\"htn\":\"\",\"peid\":\"1101691220000016555\",\"htid\":\"-1\",\"camId\":\"\"}"}, <span class="highlight">uniqueSenderId</span>=496252939249410092, <span class="highlight">externalId</span>=496252939249410092, <span class="highlight">errorCode</span>=3, gatewayId=550, <span class="highlight">status</span>=UNDELIV, numSMS=2, isEmpty=false, receiptsMetadata={"flgs":"0","htlc":"","dltid":"1107900000160600226","htn":"","peid":"1101691220000016555","htid":"-1","camId":""}, performCleanupOnly=false]
+            </pre>
+            <pre>
+Mon Dec 02 12:22:30 IST 2024:com.webaroo.smsnew.senderDispatcher.callBack.GatewayCallBackService:SMSSenderCallBack: <span class="highlight">forwarding SMSReport for causeId</span>: 5315111926811652150, <span class="highlight">sender</span>: $(DEST_NUMB), <span class="highlight">externalId</span>: 234738729105398158, <span class="highlight">internalId</span>: 993531229449060229
+            </pre>
+            <pre>
+Mon Dec 02 12:24:26 IST 2024:com.webaroo.enterprise.receipts.ReceiptsMsgClient:SMSSenderCallBack: <span class="highlight">forwarded com.webaroo.smpp.SMSReport for causeId</span>: 5315112911351824563, <span class="highlight">number</span>: $(DEST_NUMB), <span class="highlight">srcAddr</span>: $(MASK), msgId: 1552433612242220151
+            </pre>
+        </div>
+
+        <h2>Command to grep logs :</h2>
+        <div class="database-list">
+            <p>tail -F /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(DEST_NUMB)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(DEST_NUMB)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(causeId)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(externalId)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(uniqueSenderId)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(internalId)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(DEST_NUMB)\|$(causeId)\|$(externalId)\|$(uniqueSenderId)\|$(internalId)"</p>
+        </div>
+
+
+
+
+
+        
+    </div>
+    <footer>
+        <p>Author: Darshan Jain | © 2024</p>
+    </footer>
+</body>
+</html>

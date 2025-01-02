@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMSSenderDispatcher Details</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        /* Content Container */
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #003366;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+
+        .content .database-list, .content .logs {
+            margin: 20px 0;
+        }
+
+        .content .database-list p, .content .logs pre {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #003366;
+            border-radius: 4px;
+            overflow-x: auto; /* Ensure long lines scroll horizontally */
+        }
+
+        .logs pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            line-height: 1.4;
+        }
+
+        /* Highlight Styling */
+        .highlight {
+            background-color: #ffffcc; /* Light yellow highlight */
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SMSSenderDispatcher</h1>
+    </header>
+    <div class="content">
+        <h2>Databases Connected by SMSSenderDispatcher:</h2>
+        <p>cat /opt/$(tomcat_name)/webapps/SMSSenderDispatcher/WEB-INF/classes/connection.properties</p>
+        <div class="database-list">
+            <p>SMSNEW = core.db.r | 2</p>
+            <p>SMSSENDER = msgsender.db.rw | 30</p>
+            <p>SMSSENDER1 = msgsender1.db.rw | 30</p>
+            <p>SMSSENDER2 = msgsender2.db.rw | 30</p>
+            <p>SMSSENDER3 = msgsender3.db.rw | 30</p>
+            <p>SMSSENDER4 = msgsender4.db.rw | 30</p>
+            <p>SMSSENDER5 = msgsender5.db.rw | 30</p>
+            <p>SMSSENDER6 = msgsender6.db.rw | 30</p>
+            <p>SMSSENDER7 = msgsender7.db.rw | 30</p>
+            <p>SMSSENDERSNF = msgsendersnf.db.rw | 10</p>
+            <p>SMSSENDERCB = msgsendercb.db.rw | 10</p>
+            <p>SMSSENDERTHROTTLED = msgsenderthrottled.db.rw | 30</p>
+            <p>GATEWAYCONFIG = gatewayconfig.db.rw | 1</p>
+            <p>GLOBALDB = globaldb.db.r | 1</p>
+            <p>SMSSENDERMONITOR = smssendermonitor.db.rw | 5</p>
+        </div>
+        <h2>Logs on SMSSenderDispatcher:</h2>
+        <div class="logs">
+            <pre>
+Mon Dec 02 19:11:57 IST 2024:com.webaroo.smsnew.senderDispatcher.servlets.GatewayConfigManagerSubmitServlet:SMSSenderDispatcher: <span class="highlight">Got call for message with cause id</span> 5315318058150301742
+            </pre>
+            <pre>
+Mon Dec 02 19:11:57 IST 2024:com.webaroo.smsnew.senderCommon.Utils:SMSSenderDispatcher: SenderScribeCEPEvent: ,<span class="highlight">gatewayId</span>=1432,<span class="highlight">internalId</span>=153800250538647696,<span class="highlight">causeId</span>=5315318058150301742,<span class="highlight">Status</span>=DISPATCHING,<span class="highlight">MsgStatus</span>=NOT_DEFINED,msgTye=ENTERPRISE,<span class="highlight">triedGateways</span>=,1432,,entityId=1015053641,<span class="highlight">phoneNo</span>=$(DEST_NUMB),deliveryRetryCount=0,ts=1733146917225,<span class="highlight">EventType</span>=START,senderTime=1733146917271
+            </pre>
+            <pre>
+Mon Dec 02 19:11:57 IST 2024:com.webaroo.smsnew.senderDispatcher.gateway.DataHttpPool:SMSSenderDispatcher: Mon Dec 02 19:11:57 IST 2024: <span class="highlight">SUCCESS>urlIndexes 1432</span> priorityValue:462 <span class="highlight">pathId</span>:22200 <span class="highlight">latency</span>:531 0 0 <span class="highlight">To</span>: $(DEST_NUMB) <span class="highlight">causeId</span>:5315318058150301742 text: {"template":{"components" |
+            </pre>
+            <pre>
+Mon Dec 02 19:11:57 IST 2024:com.webaroo.smsnew.senderCommon.Utils:SMSSenderDispatcher: SenderScribeCEPEvent: ,<span class="highlight">gatewayId</span>=1432,<span class="highlight">internalId</span>=153800250538647696,<span class="highlight">causeId</span>=5315318058150301742,<span class="highlight">Status</span>=DISPATCHED,<span class="highlight">MsgStatus</span>=NOT_DEFINED,msgTye=ENTERPRISE,<span class="highlight">triedGateways</span>=,1432,,entityId=1015053641,<span class="highlight">phoneNo</span>=$(DEST_NUMB),deliveryRetryCount=0,ts=1733146917225,<span class="highlight">EventType</span>=END,senderTime=1733146917802
+            </pre>
+        </div>
+        <h2>Command to grep logs :</h2>
+        <div class="database-list">
+            <p>tail -F /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(DEST_NUMB)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(DEST_NUMB)</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(causeId)"</p>
+            <p>cat /opt/$(tomcat_name)/logs/catalina.out | grep -a "$(DEST_NUMB)\|$(causeId)"</p>
+        </div>
+
+
+
+
+
+        
+    </div>
+    <footer>
+        <p>Author: Darshan Jain | © 2024</p>
+    </footer>
+</body>
+</html>

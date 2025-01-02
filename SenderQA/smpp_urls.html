@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMPPSender URLs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #047ef8, #057df5);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #017ffd;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 100%;
+            max-width: 1900px;
+            margin: auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SMPPSender URLs</h1>
+        </header>
+        <main>
+            <table id="data-table" aria-label="URLs Table">
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Page Details</th>
+                        <th>URL</th>
+                        <th>QA1</th>
+                        <th>QA2</th>
+                        <th>QA3</th>
+                        <th>AWSQA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <p>Author: Darshan Jain | © 2024</p>
+        </footer>
+    </div>
+
+    <<script>
+         // QA1 IP, Port
+        const SR_IP_QA1 = ""; // Replace with your static IP
+        const SR_PORT_QA1 = ""; // Replace with your static Port
+
+        // QA2 IP, Port
+        const SR_IP_QA2 = ""; // Replace with your static IP
+        const SR_PORT_QA2 = ""; // Replace with your static Port
+
+        // QA3 IP, Port
+        const SR_IP_QA3 = ""; // Replace with your static IP
+        const SR_PORT_QA3 = ""; // Replace with your static Port
+
+        // AWSQA IP, Port
+        const SR_IP_AWSQA = ""; // Replace with your static IP
+        const SR_PORT_AWSQA = ""; // Replace with your static Port
+    
+        const jsonData = [
+            { "srNo": 1, "pageDetails": "", "url": "http://$(SR_IP):$(SR_PORT)/SMPPSender/", "qa1": "QA1", "qa2": "QA2", "qa3": "QA3", "awsqa": "AWSQA" },
+            { "srNo": 2, "pageDetails": "", "url": "http://$(SR_IP):$(SR_PORT)/SMPPSender/", "qa1": "QA1", "qa2": "QA2", "qa3": "QA3", "awsqa": "AWSQA" }
+        ];
+    
+        // Function to replace placeholders in URL for different environments
+        function replacePlaceholders(url, ip, port) {
+        return url.replace("$(SR_IP)", ip).replace("$(SR_PORT)", port);
+        }
+
+        // Function to populate the table
+        function populateTable(data) {
+        const tableBody = document.querySelector("#data-table tbody");
+        data.forEach(item => {
+        const qa1Url = replacePlaceholders(item.url, SR_IP_QA1, SR_PORT_QA1);
+        const qa2Url = replacePlaceholders(item.url, SR_IP_QA2, SR_PORT_QA2);
+        const qa3Url = replacePlaceholders(item.url, SR_IP_QA3, SR_PORT_QA3);
+        const awsqaUrl = replacePlaceholders(item.url, SR_IP_AWSQA, SR_PORT_AWSQA);
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.srNo}</td>
+            <td>${item.pageDetails}</td>
+            <td><a href="${item.url}" target="_blank">${item.url}</a></td>
+            <td><button onclick="window.open('${qa1Url}', '_blank')">QA1</button></td>
+            <td><button onclick="window.open('${qa2Url}', '_blank')">QA2</button></td>
+            <td><button onclick="window.open('${qa3Url}', '_blank')">QA3</button></td>
+            <td><button onclick="window.open('${awsqaUrl}', '_blank')">AWSQA</button></td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+    
+        // Populate the table with JSON data
+        populateTable(jsonData);
+    </script>
+    
+</body>
+</html>
